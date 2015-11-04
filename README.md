@@ -23,17 +23,56 @@
 * v1.0.0:框架搭建完成、支持同步异步、提供Demo切面(错误捕获，log，时间记录)、前后切面选择。
 
 ###哪里下载？
-1. [github地址](https://github.com/Jarvin-Guan/CleanAOP)
-2. [网盘下载](http://pan.baidu.com/s/1dD4pp1f)
+1. **[github地址](https://github.com/Jarvin-Guan/CleanAOP)**
+2. **[网盘下载](http://pan.baidu.com/s/1dD4pp1f)**
 
 ###Demo测试案例
-1. 	多切面、同步
+1. 	**多切面、同步**
 
-	`[TryCatchAttrubute]
-     [LogAopAttrubute]
-     [TimeAop]
-     public virtual void DoWord()
-     {
-         throw new Exception("错误测试");
-         Debug.WriteLine("123");
-     }`
+		[TryCatchAttrubute]
+        [LogAopAttrubute]
+        [TimeAop]
+        public virtual void DoWord()
+        {
+            throw new Exception("错误测试");
+            Debug.WriteLine("123");
+        }
+
+    结果：
+
+    	开始捕捉异常（[TryCatchAttrubute]）
+    	开始执行（[LogAopAttrubute]）
+		2015/11/5 0:47:19（[TimeAop]）
+		错误测试（异常捕获处理）
+		执行中（[LogAopAttrubute]）
+		执行结束,Void DoWord()方法（[LogAopAttrubute]）
+		2015/11/4 23:47:19	[TimeAop]）
+    	
+2. **多切面、异步**
+
+		[TryCatchAttrubute]
+        [LogAopAttrubute]
+        [TimeAop]
+        public virtual async Task DoWord()
+        {
+            await GetValueAsync(1234.5123, 1.01);
+            Debug.WriteLine("123");
+            throw new Exception("错误测试");
+            Debug.WriteLine("123");
+        }
+
+    结果：
+
+    	开始捕捉异常（[TryCatchAttrubute]）
+		开始执行（[LogAopAttrubute]）
+		2015/11/5 1:05:23（[TimeAop]）
+		执行中（[LogAopAttrubute]）
+		123
+		处理错误,错误信息为：错误测试（[TryCatchAttrubute]）
+		执行结束,System.Threading.Tasks.Task DoWord()方法（[LogAopAttrubute]）
+		2015/11/5 0:05:23（[TimeAop]）
+
+
+
+
+       
