@@ -25,7 +25,7 @@ namespace CleanAOP
         /// <typeparam name="T">被代理类</typeparam>
         /// <param name="interceptors">拦截器列表</param>
         /// <returns></returns>
-        public static T GetInterceptClass<T>(params IntercetEnum[] interceptEnums) where T : class
+        public static T GetInterceptClass<T>(object[] args,params IntercetEnum[] interceptEnums) where T : class
         {
             ProxyGenerator generator = new ProxyGenerator();//实例化【代理类生成器】
 
@@ -33,8 +33,9 @@ namespace CleanAOP
             foreach(var interceptenum in interceptEnums)
             {
                 intercepts.Add(intercepDic[interceptenum]);
-            }
-            T result = generator.CreateClassProxy<T>(intercepts.ToArray());//创建方法拦截代理类实例。
+            };
+
+            T result = generator.CreateClassProxy(typeof(T), args, intercepts.ToArray()) as T;//创建方法拦截代理类实例。
             return result;
         }
     }

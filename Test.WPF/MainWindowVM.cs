@@ -12,6 +12,16 @@ namespace Test.WPF
 {
     public class MainWindowVM:Notice
     {
+        private MainWindowVM()
+        {
+
+        }
+
+        public MainWindowVM(string a,string b)
+        {
+
+        }
+
         public virtual string Name
         {
             set; get;
@@ -24,7 +34,6 @@ namespace Test.WPF
         public virtual async Task DoWord()
         {
             await GetValueAsync(1234.5123, 1.01);
-            throw new Exception("错误测试");
             Debug.WriteLine("123");
             Debug.WriteLine("123");
         }

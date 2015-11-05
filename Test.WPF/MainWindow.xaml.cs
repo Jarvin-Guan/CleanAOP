@@ -25,7 +25,7 @@ namespace Test.WPF
         public MainWindow()
         {
             InitializeComponent();
-            var vm = InterceptClassFactory.GetInterceptClass<MainWindowVM>(IntercetEnum.Aop,IntercetEnum.PropertyNotify);
+            var vm = InterceptClassFactory.GetInterceptClass<MainWindowVM>(new object[] { "1","2"},IntercetEnum.Aop,IntercetEnum.PropertyNotify);
 
             this.DataContext = vm;
         }
