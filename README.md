@@ -15,6 +15,9 @@
 * 业务逻辑与切面逻辑解耦合。
 * 对修改封闭、对扩展开放。
 
+###使用Aop的缺点
+* 对于一些已存在修饰符的方法无法使用，需添加外围方法包含。
+
 ###CleanAop支持语言
 ![C#](http://d.pcs.baidu.com/thumbnail/36340eb0205ae3cff8352ee5f879d06e?fid=2605888136-250528-177262570783512&time=1446649200&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-v2%2BYHRdRxL7E22pGPwPqcPTMEBA%3D&rt=sh&expires=2h&r=293473716&sharesign=unknown&size=c710_u500&quality=100)
 
