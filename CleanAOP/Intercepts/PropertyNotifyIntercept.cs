@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 
 namespace CleanAOP.Intercepts
 {
+    [AttributeUsage(AttributeTargets.Class)]
     /// <summary>
     /// 属性更新拦截器，用于MVVM
     /// </summary>
-    public class PropertyNotifyIntercept : IInterceptor
+    public class PropertyNotifyIntercept : Attribute,IInterceptor
     {
         public void Intercept(IInvocation invocation)
         {

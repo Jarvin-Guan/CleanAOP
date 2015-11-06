@@ -9,10 +9,11 @@ using System.Threading.Tasks;
 
 namespace CleanAOP.Intercepts
 {
+    [AttributeUsage(AttributeTargets.Class)]
     /// <summary>
     /// AOP拦截器
     /// </summary>
-    public class AopIntercept : IInterceptor
+    public class AopIntercept : Attribute,IInterceptor
     {
         public void Intercept(IInvocation invocation)
         {

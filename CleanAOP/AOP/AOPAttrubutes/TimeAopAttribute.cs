@@ -17,7 +17,7 @@ namespace CleanAOP.AOP.AOPAttrubutes
 
         public override void Before()
         {
-            Debug.WriteLine(DateTime.Now.AddHours(1).ToString());
+            Debug.WriteLine(DateTime.Now.ToString());
         }
 
         public override void Middle(IInvocation invocation)

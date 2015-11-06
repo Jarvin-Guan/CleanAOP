@@ -1,5 +1,6 @@
 ﻿using CleanAOP;
 using CleanAOP.AOP.AOPAttrubutes;
+using CleanAOP.Intercepts;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,6 +11,8 @@ using System.Threading.Tasks;
 
 namespace Test.WPF
 {
+    [AopIntercept]
+    [PropertyNotifyIntercept]
     public class MainWindowVM:Notice
     {
         private MainWindowVM()
@@ -33,7 +36,8 @@ namespace Test.WPF
         [TimeAop]
         public virtual async Task DoWord()
         {
-            await GetValueAsync(1234.5123, 1.01);
+            //await GetValueAsync(1234.5123, 1.01);
+            throw new Exception("没有await");
             Debug.WriteLine("123");
             Debug.WriteLine("123");
         }
