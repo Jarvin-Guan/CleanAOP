@@ -22,12 +22,17 @@
 ![C#](http://d.pcs.baidu.com/thumbnail/36340eb0205ae3cff8352ee5f879d06e?fid=2605888136-250528-177262570783512&time=1446649200&sign=FDTAER-DCb740ccc5511e5e8fedcff06b081203-v2%2BYHRdRxL7E22pGPwPqcPTMEBA%3D&rt=sh&expires=2h&r=293473716&sharesign=unknown&size=c710_u500&quality=100)
 
 ###版本历史
-####当前版本：v1.0.0
+####最新版本：v2.0.0
 * v1.0.0:框架搭建完成、支持同步异步、提供Demo切面(错误捕获，log，时间记录)、前后切面选择。
+* v2.0.0:
+	1. 拦截面切入方式改变，优化代理类生成方式。
+	2. 使用AOP的类不能有带参构造函数bug修复。
 
 ###哪里下载？
 1. **[github地址](https://github.com/Jarvin-Guan/CleanAOP)**
-2. **[网盘下载](http://pan.baidu.com/s/1dD4pp1f)**
+2. **网盘下载:**
+	* [v1.0.0](http://pan.baidu.com/s/1dD4pp1f)
+	* [v2.0.0](http://pan.baidu.com/s/1o65ZbHS)
 
 ###Demo测试案例
 1. 	**多切面、同步**
@@ -74,8 +79,3 @@
 		处理错误,错误信息为：错误测试（[TryCatchAttrubute]）
 		执行结束,System.Threading.Tasks.Task DoWord()方法（[LogAopAttrubute]）
 		2015/11/5 0:05:23（[TimeAop]）
-
-
-
-
-       
