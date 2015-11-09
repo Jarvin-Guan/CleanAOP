@@ -9,7 +9,7 @@
  讲起WPF，开发模式MVVM是必不可少的，使用MVVM模式以后可以在View中写界面，需要使用到的数据则使用绑定的方式写到标签中，那么控制权就放到了ViewModel中，那么有一个需求是每一个使用MVVM者都会有的，就是在后台改变ViewModel的属性时，同时使前台View绑定的标签内容得到相应更新变动。
  
 ##定义属性方式对比
-1. **传统方式**
+ *  **传统方式**
 
 		private string m_Name = "";
         public string Name
@@ -25,7 +25,7 @@
             get { return m_Name; }
         }
 
-2. **使用CleanAOP后**
+ *  **使用CleanAOP后**
 
 		public virtual string Name { set; get; }
 
