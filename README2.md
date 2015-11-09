@@ -3,6 +3,8 @@
 	作者: 立地
 	邮箱: jarvin_g@126.com
 	QQ:  511363759
+	
+CleanAOP介绍:[http://www.cnblogs.com/Jarvin/p/4937915.html](http://www.cnblogs.com/Jarvin/p/4937915.html)
 
 ##前言
 
