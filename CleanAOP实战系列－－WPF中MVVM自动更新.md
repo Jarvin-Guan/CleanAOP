@@ -39,11 +39,12 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
 
 
  1. 下载[CleanAOP2.0.0](http://yun.baidu.com/s/1o65ZbHS),并且引用dll到项目中。
- 2. Notice类：
- 	public class Notice : INotifyPropertyChanged, ICommand
-    {
+ 3. Notice更新类:
+ 
+ 		public class Notice : INotifyPropertyChanged, ICommand
+    	{
 
-        #region [     用于实现绑定的属性基础      ]
+       	#region [     用于实现绑定的属性基础      ]
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(string name)
@@ -83,8 +84,8 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
 
         public Action<object> ExecuteAction { set; get; }
         #endregion
-    }
- 3. 定义ViewModel:
+    	}
+ 2. 定义ViewModel:
  
  		[PropertyNotifyIntercept]//添加属性通知标签，表示该类接入属性通知拦截器。
     	//继承Notice
@@ -95,10 +96,10 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
         	public virtual string Name { set; get; } = "jarvin";
 
         }
- 4. 界面上绑定该属性
+ 3. 界面上绑定该属性
  		
  		<TextBox Text="{Binding Name}"></TextBox>
- 5. 设置DataContext
+ 4. 设置DataContext
  		
  		public MainWindow()
         {
@@ -106,9 +107,11 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
             this.DataContext = InterceptClassFactory.GetInterceptClass<MainWindowVM>();
         }
 
- 6. 修改MainWindowVM的Name的值，这时候界面上会自动做出更新！！
+ 5. 修改MainWindowVM的Name的值，这时候界面上会自动做出更新！！
 
  
 ## 总结
 
 感谢大家使用CleanAOP,使用该方式也可以绑定命令，绑定命令的方式在Demo中会有展示，希望能给大家带来方便。大家可以[下载Demo](http://pan.baidu.com/s/1ntxTH5B)来调试。
+
+
