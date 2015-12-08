@@ -39,6 +39,52 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
 
 
  1. 下载[CleanAOP2.0.0](http://yun.baidu.com/s/1o65ZbHS),并且引用dll到项目中。
+ 3. Notice更新类:
+ 
+ 		public class Notice : INotifyPropertyChanged, ICommand
+    	{
+
+       	#region [     用于实现绑定的属性基础      ]
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+
+        }
+        #endregion
+
+        #region [     用于实现绑定的命令基础     ]
+        public bool CanExecute(object parameter)
+        {
+            if (this.CanExecuteFunc != null)
+            {
+                return this.CanExecuteFunc(parameter);
+            }
+
+            return true;
+
+
+        }
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            if (this.ExecuteAction != null)
+            {
+                this.ExecuteAction(parameter);
+
+            }
+        }
+
+        public Func<object, bool> CanExecuteFunc { set; get; }
+
+        public Action<object> ExecuteAction { set; get; }
+        #endregion
+    	}
  2. 定义ViewModel:
  
  		[PropertyNotifyIntercept]//添加属性通知标签，表示该类接入属性通知拦截器。
@@ -67,3 +113,5 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
 ## 总结
 
 感谢大家使用CleanAOP,使用该方式也可以绑定命令，绑定命令的方式在Demo中会有展示，希望能给大家带来方便。大家可以[下载Demo](http://pan.baidu.com/s/1ntxTH5B)来调试。
+
+
