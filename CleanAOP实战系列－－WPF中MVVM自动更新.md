@@ -39,7 +39,52 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
 
 
  1. 下载[CleanAOP2.0.0](http://yun.baidu.com/s/1o65ZbHS),并且引用dll到项目中。
- 2. 定义ViewModel:
+ 2. Notice类：
+ 	public class Notice : INotifyPropertyChanged, ICommand
+    {
+
+        #region [     用于实现绑定的属性基础      ]
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string name)
+        {
+            if (PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(name));
+            }
+
+        }
+        #endregion
+
+        #region [     用于实现绑定的命令基础     ]
+        public bool CanExecute(object parameter)
+        {
+            if (this.CanExecuteFunc != null)
+            {
+                return this.CanExecuteFunc(parameter);
+            }
+
+            return true;
+
+
+        }
+        public event EventHandler CanExecuteChanged;
+
+        public void Execute(object parameter)
+        {
+            if (this.ExecuteAction != null)
+            {
+                this.ExecuteAction(parameter);
+
+            }
+        }
+
+        public Func<object, bool> CanExecuteFunc { set; get; }
+
+        public Action<object> ExecuteAction { set; get; }
+        #endregion
+    }
+ 3. 定义ViewModel:
  
  		[PropertyNotifyIntercept]//添加属性通知标签，表示该类接入属性通知拦截器。
     	//继承Notice
@@ -50,10 +95,10 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
         	public virtual string Name { set; get; } = "jarvin";
 
         }
- 3. 界面上绑定该属性
+ 4. 界面上绑定该属性
  		
  		<TextBox Text="{Binding Name}"></TextBox>
- 4. 设置DataContext
+ 5. 设置DataContext
  		
  		public MainWindow()
         {
@@ -61,7 +106,7 @@ CleanAOP介绍:[https://github.com/Jarvin-Guan/CleanAOP](https://github.com/Jarv
             this.DataContext = InterceptClassFactory.GetInterceptClass<MainWindowVM>();
         }
 
- 5. 修改MainWindowVM的Name的值，这时候界面上会自动做出更新！！
+ 6. 修改MainWindowVM的Name的值，这时候界面上会自动做出更新！！
 
  
 ## 总结
