@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace Test.WPF
 {
-    [AopIntercept]
     [PropertyNotifyIntercept]
     public class MainWindowVM:Notice
     {
