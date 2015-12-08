@@ -33,7 +33,7 @@ namespace Test.WPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             (this.DataContext as MainWindowVM).Name = "Jarvin Changed";
-            //(this.DataContext as MainWindowVM).DoWord();
+            (this.DataContext as MainWindowVM).DoWord();
         }
     }
 }

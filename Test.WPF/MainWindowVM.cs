@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Test.WPF
 {
+    [AopIntercept]
     [PropertyNotifyIntercept]
     public class MainWindowVM:Notice
     {
@@ -35,8 +36,8 @@ namespace Test.WPF
         [TimeAop]
         public virtual async Task DoWord()
         {
-            //await GetValueAsync(1234.5123, 1.01);
-            throw new Exception("没有await");
+            await GetValueAsync(1234.5123, 1.01);
+            //throw new Exception("没有await");
             Debug.WriteLine("123");
             Debug.WriteLine("123");
         }
