@@ -1,5 +1,5 @@
-#CleanAOP－－简介  ![](https://travis-ci.org/Jarvin-Guan/CleanAOP.svg?branch=master)
-
+#CleanAOP－－简介  
+[![build][https://travis-ci.org/Jarvin-Guan/CleanAOP.svg?branch=master]][https://travis-ci.org/]
 	作者：立地(欧文)
 	邮箱：jarvin_g@126.com
 
