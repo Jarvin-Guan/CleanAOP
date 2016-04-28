@@ -1,4 +1,4 @@
-#CleanAOP－－简介 [![Build][Build-state]][Build-url][![Gitter](https://badges.gitter.im/Jarvin-Guan/CleanAOP.svg)](https://gitter.im/Jarvin-Guan/CleanAOP?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+#CleanAOP－－简介 [![Build][Build-state]][Build-url]    [![Gitter](https://badges.gitter.im/Jarvin-Guan/CleanAOP.svg)](https://gitter.im/Jarvin-Guan/CleanAOP?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 	作者：立地(欧文)
 	邮箱：jarvin_g@126.com
 
